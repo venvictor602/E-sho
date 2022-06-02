@@ -1,0 +1,93 @@
+{% extends 'store1/main.html' %}
+{% block content %}
+{% load static %}
+
+<div class="container">
+    <div class="text-capitalize text-center">
+        <h1 class="">Contact Us</h1>
+    </div>
+
+        <!--contact-->
+        <div class="row text-center pt-5 mt-5 mb-5 pb-5x">
+        <div class="col-md-6 col-lg-6 col-sm-6 my-3 align-self-center" id="contact">
+            <div class="embed-responsive embed-responsive-21by9 height-60">
+             <iframe class="embed-responsive" 
+             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63469.804069923055!2d6.762191292282329!3d6.149127810220338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104393be
+             d6cb93b7%3A0xd75544d3750782f7!2sOnitsha!5e0!3m2!1sen!2sng!4v1601108884622!5m2!1sen!2sng" width="100%"  frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+            </div>
+         </div>
+
+         <div class="col-md-6 col-lg-6 col-sm-6 my-3 align-self-center">
+             <div class="card text-center">
+                 <div class="card-header text-uppercase">
+                     <h1 class="text-uppercase">contact us</h1>
+                 </div>
+                 <div class="card-body">
+                     <form  role="form" action="{% url 'contact' %}" method="post">
+                        {% csrf_token %}
+                          <!--input group-->
+                          <div class="input-group my-3">
+                             <div class="input-group-prepend">
+                                 <span class="input-group-text" id="input-name">
+                                     <i class="fas fa-user"></i>
+                                 </span>
+                             </div>
+                             <input type="text" name="name" required placeholder="Enter Name" class="form-control form-control-lg">
+
+                         </div>
+                         
+                          <!--input group-->
+                          <div class="input-group my-3">
+                             <div class="input-group-prepend">
+                                 <span class="input-group-text" id="input-email">
+                                     <i class="fas fa-envelope"></i>
+                                 </span>
+                             </div>
+                             <input type="Email" name="email" placeholder="Enter Email" class="form-control form-control-lg">
+
+                         </div>
+
+                         <!--input group-->
+                         <div class="input-group my-3">
+                             <div class="input-group-prepend">
+                                 <span class="input-group-text" id="input-subject">
+                                     <i class="fas fa-envelope"></i>
+                                 </span>
+                             </div>
+                             <input type="text" name="subject" required placeholder="Enter Subject" class="form-control form-control-lg">
+
+                         </div>
+
+                          <!--input group-->
+                          <div class="input-group my-3">
+                             <div class="input-group-prepend">
+                                 <span class="input-group-text" id="input-phone">
+                                     <i class="fas fa-phone"></i>
+                                 </span>
+                             </div>
+                             <input type="text" name="phone" placeholder="Enter Phone Number" class="form-control form-control-lg">
+
+                         </div>
+                           <!--input group-->
+                           <div class="input-group my-3">
+                             <div class="input-group-prepend">
+                                 <span class="input-group-text" id="input-message">
+                                     <i class="fas fa-envelope"></i>
+                                 </span>
+                             </div>
+                             <textarea type="text" placeholder="Enter Message"  name= "message" class="form-control form-control-lg textarea"></textarea>
+
+                         </div>
+                         <button type="submit" class="btn btn-block btn-lg text-uppercase text-center 
+                         contact-btn"><i class="far fa-hand-point-right mr-2"></i>Submit</button>
+                     </form>
+                 </div>
+             </div>
+         </div>
+    <!--contact-->
+</div>
+
+</div>
+
+{% endblock %}

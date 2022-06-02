@@ -1,0 +1,44 @@
+{% load static %}
+<!--navbar-->
+<nav class="navbar navbar-expand-md fixed-top bg-warning navbar-dark " >
+    <!-- Brand -->
+    <div class="container">
+    <a class="navbar-brand text-dark" href="">Kilimanjaro Foods</a>
+  
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler icon bg-dark " type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon bg-dark"></span>
+    </button>
+  
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      
+    </div>
+    <div class=" collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+        
+      </ul>
+  </div>
+    <div class=" collapse navbar-collapse " id="collapsibleNavbar">
+        <ul class="nav navbar-nav navbar-right">
+        
+          <li class="nav-item current">
+            <a class="nav-link  p-3 text-dark " href="{% url 'store' %}"><i class="fa fa-home"></i>Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link p-3 text-dark" href="{% url 'contact' %}"><i class="fa fa-tools"></i>Contact</a>
+          </li>
+          </li>
+        
+        <li class="nav-item current">
+            <a class="nav-link p-3 text-dark"  href="{% url 'cart' %}"><i class="fa fa-shopping-cart"></i>Cart <span id="Cart_count" class="text-warning bg-light">  {{cartItems}}</span></a>
+            
+        </li>
+
+     </ul>
+  </div>
+</div>
+  </nav>
+  
+  <!--end navbar-->

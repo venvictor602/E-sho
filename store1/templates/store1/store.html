@@ -1,0 +1,176 @@
+{% extends 'store1/main.html' %}
+{% block content %}
+{% load static %}
+<section>
+    <div class="container">
+        <div class="row py-4 mb-3 pb-3 h-100 justify-content-center align-items-center">
+            <div class="col-md-6 height-80 pt-2 mt-3 text-center" id="#top">
+                <div class="showcase-left">
+                    <h1 class="  text-uppercase dark  ">Best <span class="text-warning ">Pizza, Burger & shawarma delivery</span> in your home.</h1>
+                    <h5 class="font-weight-bold">Easy.Fast.Reliable</h5>
+                    <h6 class="text-secondary">Order your favorite Pizza anytime we will deliver them to your door step very quick</h6>
+                </div>
+                <!-- Button to Open the Modal -->
+  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">
+    Make a Reservation
+  </button>
+
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header bg-image reserve">
+            
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <!-- Modal body -->
+        <div class="modal-body">
+            <form action="" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label for="m_fname">First Name</label>
+                  <input type="text" name="fname" class="form-control" id="m_fname">
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="m_lname">Last Name</label>
+                  <input type="text" name="lname" class="form-control" id="m_lname">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <label for="m_email">Email</label>
+                  <input type="email" name="email" class="form-control" id="m_email">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label for="m_people">How Many People</label>
+                  <select name="people" id="m_people" class="form-control">
+                    <option value={{form.people}}</option>
+                    
+                  </select>
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="m_phone">Phone</label>
+                  <input type="text" name="phone" class="form-control" id="m_phone">
+                </div>
+              </div>
+  
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label for="m_date">Date</label>
+                  <input type="text" name="date" class="form-control" id="m_date"></input>
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="m_time">Time</label>
+                  <input type="text" name="time" class="form-control" id="m_time">
+                </div>
+              </div>
+  
+              <div class="row ">
+                <div class="col-md-12 form-group">
+                  <label for="m_message">Message</label>
+                  <textarea class="form-control" name="message" id="m_message" cols="30" rows="7"></textarea>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <input type="submit" class="btn btn-warning btn-lg btn-block" value="Reserve Now">
+                </div>
+              </div>
+  
+            </form>
+          </div>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+            </div>
+            
+            <div class="col-md-6 height-80 pt-2 mt-3 text-center ">
+                <div class="showcase-right">
+                    <img src="{% static 'images/chef1.jpg' %}" alt="Chef">
+                </div>
+            </div>
+        </div>
+        
+        <!--service-->
+        <div class="container">
+            <div class="text-capitalize text-center">
+              <h1 id="service"> services</h1>
+            </div>
+            <!--title-->
+            <div class="title-underline bg-primary"></div>
+            <!--end of title-->
+            <div class="row py-5 mt-3 ">
+              <div class="col-md-4 col-sm-3 my-5 text-center">
+                <img src="{% static 'images/burger.png' %}" alt="" width="30%" height="30%">
+                <h2>Quality Food</h2>
+              </div>
+              <div class="col-md-4 col-sm-3 my-5 text-center">
+                <img src="{% static 'images/van.png' %}" alt="" width="50%" height="50%">
+                <h2>Fastest Delivery</h2>
+              </div>
+              <div class="col-md-4 col-sm-3 my-5 text-center">
+                <img src="{% static 'images/recippe.png' %}" alt="" width="30%" height="30%">
+                <h2>Original Recipes</h2>
+              </div>
+              
+            </div>
+          </div>
+    
+            <!--end of service-->
+        <div class="title">
+            <h1 class="text-center mt-5" id="special">SPECIAL PIZZA & SHAWARMA</h1>
+        </div>
+        
+        <div class="row text-center">
+            <!--feturead-->
+            {% for product in products %}
+           <div class="col-md-6 col-lg-4 col-sm-6 text-center my-3 ">
+            <form action="">
+                <div class="card shadow" style="width: 300px; height: 400px;">
+                    <div>
+                        <img src="{{product.imageURL}}" class=" img-fluid card-img-top" style="height:200px; width:200px;">
+                    </div>
+                    <div class="card-body product">
+                        <h5 class="card-title text-uppercase"><strong>{{product.name}}</strong></h5>
+                            <h6><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </h6>
+                            <h5>
+                            <small><s class="text-secondary">${{product.previous_price|floatformat:1}}</s></small>
+                            <span class="price">${{product.price|floatformat:1}}</span>
+                        </h5>
+                            <button data-product="{{product.id}}" data-action="add" class="btn btn-warning update-cart" type="button">Add to Cart<i class="fas-fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+            
+                
+            </form>
+           </div>
+           {% endfor %}
+           <!--feturead-->
+
+           
+           
+        
+                   
+          
+            
+    </div>
+    </div>
+
+</section>
+{% endblock %}

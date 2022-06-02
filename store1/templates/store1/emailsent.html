@@ -1,0 +1,42 @@
+{% extends 'store1/main.html' %}
+{% block content %}
+{% load static %}
+<style>
+    html,body{
+        height:100%;
+    }
+    #page-wrapper{
+        height:100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        
+    }
+    #success-box{
+        max-width: 800px;
+        height: auto;
+        background-color: #FFf;
+        border:1px solid #888;
+        border-radius:5px;
+        padding:15px;
+    }
+    #success-box p{
+        font-size:18px;
+    }
+
+</style>
+
+
+
+<div id="page-wrapper">
+    <div id="success-box" class="content-block pb-5 mb-5 mt-5 py-5">
+        <h1 class="text-uppercase">thanks for reaching out!</h1>
+        <p class="text-dark">Your message was successfuly sent. We will do our best to get back to you
+            in a timely manner.
+        </p>
+        <a id="back-btn" class="btn btn-warning" href="{% url 'store' %}">BACK TO HOME PAGE</a>
+    </div>
+</div>
+
+{% endblock %}
